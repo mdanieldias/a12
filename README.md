@@ -22,7 +22,7 @@ Siga os passos abaixo para configurar e executar o projeto localmente:
 Clone o repositório do projeto para sua máquina local:
 
 ```bash
-git clone https://github.com/usuario/nome-do-projeto.git
+git clone https://github.com/mdanieldias/a12.git
 cd nome-do-projeto
 ```
 
@@ -40,6 +40,11 @@ cp .env.example .env
 Abra o arquivo .env e configure as seguintes variáveis de ambiente de acordo com seu ambiente:
 
 ```bash
+APP_NAME="A12 - Família dos Devotos"
+APP_TIMEZONE=America/Sao_Paulo
+APP_URL=http://localhost:8000
+APP_LOCALE=pt_BR
+APP_FAKER_LOCALE=pt_BR
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
