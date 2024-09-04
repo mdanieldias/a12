@@ -27,8 +27,8 @@ export const useCadastroStore = defineStore('formStore', {
 
                 if (response.status === 201) {
                     Swal.fire({
-                        title: 'Sucesso!',
-                        text: 'Cadastro realizado com sucesso.',
+                        title: 'Cadastrado com sucesso!',
+                        text: 'Você receberá um e-mail de confirmação do cadastro no email informado.',
                         icon: 'success',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#41b882',
