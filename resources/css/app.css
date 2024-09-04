@@ -1,0 +1,90 @@
+@import url("~bootstrap/css/bootstrap.min.css");
+@import url("~bootstrap-icons/bootstrap-icons.css");
+
+
+:root {
+    --primary-color: #005299;
+    --secondary-color: #024c8d;
+}
+
+.container {
+    max-width: 960px;
+}
+
+.familia-devotos > header {
+    /* background-image: #699ecd; */
+    background-image: linear-gradient(to left, #81a4c3, #34638b);
+}
+
+.familia-devotos h2 {
+    color: var(--primary-color);
+    font-size: 34px;
+}
+
+.familia-devotos h4 {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.familia-devotos .lead {
+    font-size: 18px !important;
+}
+
+/* Aplicar border-radius de 20% aos campos do formulário */
+.form-control,
+.btn,
+.form-select {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+label {
+    font-size: 14px;
+}
+
+/* Estilizar a imagem com bordas arredondadas */
+.form-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.custom-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.custom-btn:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: var(--primary-color) !important;
+}
+
+.familia-devotos > footer {
+    background-image: linear-gradient(to left, #81a4c3, #34638b);
+    font-size: 14px;
+}
+
+.familia-devotos > footer > .list-inline > .list-inline-item a, .familia-devotos > footer p {
+    color: white !important;
+}
+
+@media (max-width: 576px) { 
+    .familia-devotos h2 {
+        font-size: 24px;
+    }
+
+    .familia-devotos .lead {
+        font-size: 16px !important;
+    }
+
+    .familia-devotos h4 {
+        font-size: 18px;
+    }
+}
