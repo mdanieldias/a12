@@ -112,7 +112,7 @@
 import { useCadastroStore } from '../stores/cadastroStore';
 import { useCityStore } from '../stores/cityStore';
 import { validateCPF } from '../utils/cpfValidator';
-import { ref, nextTick, computed, onMounted } from 'vue';
+import { ref, nextTick, computed, watch } from 'vue';
 import Tooltip from './Tooltip.vue';
 
 export default {
@@ -124,6 +124,12 @@ export default {
     const cityStore = useCityStore();
     const isLoading = ref(false);
     const inputKey = ref(Date.now());
+
+    watch(() => cadastroStore.isSubmittedSuccessfully, (newVal) => {
+      if (newVal) {
+        inputKey.value = Date.now(); // Atualiza o key apenas se o cadastro for bem-sucedido
+      }
+    });
 
     const onStateChange = async () => {
       const { uf } = cadastroStore.formData;
@@ -174,16 +180,7 @@ export default {
 
       if (!cpfError && Object.values(cadastroStore.formErrors).every(error => error === null)) {
         cadastroStore.submitForm();
-        resetMaskedFields();
       }
-      
-    };
-
-    const resetMaskedFields = () => {
-      cadastroStore.formData.cpf = '';
-      cadastroStore.formData.celular = '';
-
-      inputKey.value = Date.now();
     };
 
     return {

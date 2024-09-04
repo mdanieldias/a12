@@ -15,17 +15,17 @@ export const useCadastroStore = defineStore('formStore', {
         },
         isSubmitting: false,
         formErrors: {},
+        isSubmittedSuccessfully: false,
     }),
     actions: {
         async submitForm() {
             this.isSubmitting = true;
             this.formErrors = {};
+            this.isSubmittedSuccessfully = false;
             try {
                 const response = await axios.post('/customers', this.formData);
 
                 if (response.status === 201) {
-                    this.clearForm();
-                    
                     Swal.fire({
                         title: 'Sucesso!',
                         text: 'Cadastro realizado com sucesso.',
@@ -33,6 +33,9 @@ export const useCadastroStore = defineStore('formStore', {
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#41b882',
                     });
+
+                    this.isSubmittedSuccessfully = true;
+                    this.clearForm();
                     
                 } else {
                     Swal.fire({
