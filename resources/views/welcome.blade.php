@@ -32,9 +32,9 @@
     </header>
 
     <div class="container">
-        <div class="row text-center">
+        <div class="row my-3 text-center">
             <div class="col-12">
-                <h2 class="mt-2">Participe da nossa Família!</h2>
+                <h2 class="">Participe da nossa Família!</h2>
                 <p class="fs-5 lead">Seu gesto de generosidade ajudará a propagar a devoção à Mãe Aparecida e a manter as obras de construção, acolhimento, sociais e evangelização do Santuário Nacional de Aparecida.</p>
             </div>
         </div>

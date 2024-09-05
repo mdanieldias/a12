@@ -230,7 +230,7 @@ class CustomerController extends Controller
      * @param  \App\Http\Requests\Request  $request O objeto de requisição contendo os dados da consulta.
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getByCity(Request $request): JsonResponse|AnonymousResourceCollection
+    public function getByCity(Request $request): JsonResponse
     {
         $cidade = $request->query('cidade');
 
