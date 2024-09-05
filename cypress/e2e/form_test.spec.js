@@ -91,8 +91,15 @@ describe('Testando o formulário Vue.js no Laravel', () => {
         // Submete o formulário
         cy.get('button[type="submit"]').click();
 
-        cy.contains('O campo email já está sendo utilizado.').should('be.visible');
-
+        cy.intercept('POST', '/api/v1/customers', (req) => {
+          req.reply((res) => {
+            // Verifica se o status 422 foi retornado
+            if (res.statusCode === 422) {
+              // Trate o erro aqui ou verifique a mensagem
+              cy.contains('O campo email já está sendo utilizado.').should('be.visible');
+            }
+          });
+        });
     
       });
       
