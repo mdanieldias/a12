@@ -101,6 +101,12 @@ php artisan serve
 ## Uso
 Acesse o projeto no navegador em http://localhost:8000
 
+## Test
+Realizar o teste da API e banco de dados
+```bash
+php artisan test
+```
+
 ## Contribuição
 
 ## Licença
