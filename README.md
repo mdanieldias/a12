@@ -101,11 +101,26 @@ php artisan serve
 ## Uso
 Acesse o projeto no navegador em http://localhost:8000
 
-## Test
-Realizar o teste da API e banco de dados
+## Testes
+Nessa etapa serão realizados os teste de API e aplicação.
+### Realizar o teste da API e banco de dados
 ```bash
 php artisan test
 ```
+### Executar E2E com Cypress em modo headless (sem interface gráfica)
+```bash
+npx cypress run
+```
+Isso executará os testes no terminal, sem abrir a interface gráfica. O Cypress rodará os testes de E2E de maneira silenciosa e exibirá os resultados no terminal.
+
+### Executar E2E com interface gráfica do Cypress
+```bash
+npx cypress open
+```
+Isso abrirá a interface gráfica do Cypress, onde você pode selecionar os arquivos de teste e executá-los.
+- Navegue até a aba "E2E Testing".
+- Selecione o navegador em que deseja executar os testes (por exemplo, Chrome).
+- Na lista de testes que aparece na interface, clique no arquivo **form_test.spec.js**
 
 ## Contribuição
 
