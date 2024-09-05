@@ -98,9 +98,8 @@ Inicie o servidor de desenvolvimento do Laravel:
 php artisan serve
 ```
 
-Acesse o projeto no navegador em http://localhost:8000
-
 ## Uso
+Acesse o projeto no navegador em http://localhost:8000
 
 ## Contribuição
 
