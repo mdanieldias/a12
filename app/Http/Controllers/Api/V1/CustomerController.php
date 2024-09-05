@@ -32,7 +32,7 @@ class CustomerController extends Controller
         return response()->json(
             [
                 'success' => true,
-                'data' => CustomerResource::collection($customers)
+                'data' => $customers
             ],
             200
         );
@@ -263,7 +263,7 @@ class CustomerController extends Controller
         return response()->json(
             [
                 'success' => true,
-                'data' => CustomerResource::collection($customers)
+                'data' => $customers
             ],
             200
         );
