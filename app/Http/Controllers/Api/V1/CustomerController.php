@@ -268,4 +268,37 @@ class CustomerController extends Controller
             200
         );
     }
+
+    /**
+     * Trunca a tabela customers.
+     *
+     * Este método trunca a tabela customers do banco de dados. Utilizado somente para realizar testes no fronte-end.
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function truncateTable(): JsonResponse
+    {
+        try {
+            DB::table('customers')->truncate();
+
+            return response()->json(
+                [
+                    'success' => true,
+                    'data' => [],
+                    'message' => 'Tabela customers truncada com sucesso!'
+                ],
+                Response::HTTP_OK
+            );
+        } catch (\Exception $e) {
+
+            return response()->json(
+                [
+                    'success' => false,
+                    'data' => [],
+                    'message' => 'Erro ao truncar a tabela customers.',
+                    'error' => $e->getMessage()
+                ],
+                Response::HTTP_INTERNAL_SERVER_ERROR
+            );
+        }
+    }
 }

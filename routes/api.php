@@ -14,6 +14,7 @@ Route::prefix('v1/customers')->group(function () {
     Route::post('/', [CustomerController::class, 'store']);
     Route::get('/pesquisar', [CustomerController::class, 'getByCity']);
     Route::get('/{id}', [CustomerController::class, 'show']);
+    Route::delete('/truncate', [CustomerController::class, 'truncateTable']);
     Route::delete('/{id}', [CustomerController::class, 'destroy']);
     Route::put('/{id}', [CustomerController::class, 'update']);
 });
