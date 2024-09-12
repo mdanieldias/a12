@@ -27,15 +27,28 @@ class CustomerController extends Controller
      */
     public function index(): JsonResponse
     {
-        $customers = Customer::with('city')->paginate(10);
+        try {
+            $customers = Customer::with('city')->paginate(10);
 
-        return response()->json(
-            [
-                'success' => true,
-                'data' => $customers
-            ],
-            200
-        );
+            return response()->json(
+                [
+                    'success' => true,
+                    'data' => $customers
+                ],
+                Response::HTTP_OK
+            );
+        } catch (\Exception $e) {
+
+            return response()->json(
+                [
+                    'success' => false,
+                    'data' => [],
+                    'message' => 'Erro interno.',
+                    'error' => $e->getMessage()
+                ],
+                Response::HTTP_INTERNAL_SERVER_ERROR
+            );
+        }
     }
 
     /**

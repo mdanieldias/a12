@@ -133,4 +133,28 @@ class CustomerApiTest extends TestCase
         $response->assertStatus(200);
         $response->assertJsonStructure(['success', 'data']);
     }
+
+    /**
+     * Testa a consulta de clientes não encontrados por cidade.
+     */
+    public function test_no_customers_found_for_city()
+    {
+        // Cria uma cidade sem clientes
+        $city = City::factory()->create(['nome' => 'Rio de Janeiro']);
+
+        // Faz a requisição à API para obter os clientes da cidade
+        $response = $this->getJson('/api/v1/customers/pesquisar?cidade=Rio de Janeiro');
+
+        // Verifica se a resposta tem sucesso e possui a chave 'data'
+        $response->assertStatus(200);
+
+        // Verifica se a estrutura da resposta contém uma chave 'success' e uma chave 'data'
+        $response->assertJsonStructure(['success', 'data']);
+
+        // Verifica se a resposta contém uma chave 'data' vazia ou uma estrutura que indica nenhum resultado encontrado
+        $response->assertJson([
+            'success' => false,
+            'data' => []
+        ]);
+    }
 }

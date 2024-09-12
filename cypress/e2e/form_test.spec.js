@@ -54,7 +54,7 @@ describe('Testando o formulário Vue.js no Laravel', () => {
         cy.get('select#cidade', { timeout: 10000 }).should('not.be.disabled'); // Espera até que o campo seja habilitado
     
         // Verifica se as cidades foram carregadas corretamente
-        cy.get('select#cidade').find('option').should('have.length.greaterThan', 1); // Deve haver mais de uma opção
+        cy.get('select#cidade').find('option').should('have.length.greaterThan', 1);
     
         // Seleciona uma cidade no campo de cidade
         cy.get('select#cidade').select('CRUZEIRO'); // Altere para uma cidade válida
